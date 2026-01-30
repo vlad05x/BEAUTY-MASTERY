@@ -1,0 +1,108 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { Sparkles, Heart, Star, Zap } from "lucide-react";
+
+const services = [
+  {
+    title: "Permanent Makeup",
+    description: "Tailored brow, eye, and lip enhancements that save you time and boost your confidence every single day.",
+    icon: <Sparkles className="w-6 h-6" />,
+    image: "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=1070&auto=format&fit=crop",
+  },
+  {
+    title: "Lip Augmentation",
+    description: "Subtle, natural-looking volume and definition using premium techniques to create your perfect pout.",
+    icon: <Heart className="w-6 h-6" />,
+    image: "https://images.unsplash.com/photo-1526045612212-70caf35c11bc?q=80&w=2070&auto=format&fit=crop",
+  },
+  {
+    title: "Skin Rejuvenation",
+    description: "Advanced treatments designed to revitalize your complexion and reveal a radiant, youthful glow.",
+    icon: <Star className="w-6 h-6" />,
+    image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=2070&auto=format&fit=crop",
+  },
+  {
+    title: "Aesthetic Training",
+    description: "Empowering the next generation of artists with master-level courses and hands-on professional mentorship.",
+    icon: <Zap className="w-6 h-6" />,
+    image: "https://images.unsplash.com/photo-1522338242992-e1a54906a8da?q=80&w=1888&auto=format&fit=crop",
+  },
+];
+
+const Services = () => {
+  return (
+    <section id="services" className="py-32 bg-nude-100 overflow-hidden">
+      <div className="container mx-auto px-6">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="max-w-2xl"
+          >
+            <h2 className="text-5xl md:text-7xl font-heading mb-8">
+              Exquisite <span className="italic text-gold">Services</span>
+            </h2>
+            <p className="text-muted text-lg font-body max-w-lg">
+              Each treatment is a masterpiece, meticulously crafted to enhance your natural features and reflect your inner radiance.
+            </p>
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="hidden md:block"
+          >
+            <div className="flex gap-4">
+              <div className="w-12 h-[1px] bg-gold mt-4" />
+              <span className="text-xs uppercase tracking-[0.3em]">Curation of Excellence</span>
+            </div>
+          </motion.div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {services.map((service, index) => (
+            <motion.div
+              key={service.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.6 }}
+              className="group relative"
+            >
+              <div className="relative h-[500px] overflow-hidden">
+                <motion.img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500" />
+                
+                <div className="absolute inset-0 p-8 flex flex-col justify-between">
+                  <div className="flex justify-between items-start">
+                    <div className="w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white">
+                      {service.icon}
+                    </div>
+                    <span className="text-white/60 font-body text-xs">0{index + 1}</span>
+                  </div>
+                  
+                  <div className="text-white translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+                    <h3 className="text-2xl font-heading mb-4">{service.title}</h3>
+                    <p className="text-sm text-white/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 font-body leading-relaxed">
+                      {service.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Services;
