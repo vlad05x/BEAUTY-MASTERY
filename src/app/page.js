@@ -10,13 +10,16 @@ import CallToAction from "@/components/CallToAction";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
-export default function Home() {
+import { client } from "@/sanity/lib/client";
+
+export default async function Home() {
+  const aboutData = await client.fetch(`*[_type == "aboutMe"][0]`);
   return (
     <main className="min-h-screen">
       <Navbar />
       <Hero />
       <Services />
-      <AboutMe />
+      <AboutMe data={aboutData} />
       <Benefits />
       <Portfolio />
       <TrainingCourses />
