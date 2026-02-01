@@ -2,7 +2,9 @@ import heroSection from './heroSection'
 import servicesSection from './servicesSection'
 import aboutMe from './aboutMe'
 import benefitsSection from './benefitsSection'
+import portfolioItem from './portfolioItem'
+import portfolioSection from './portfolioSection'
 
 export const schema = {
-  types: [ heroSection ,aboutMe, benefitsSection, servicesSection ],
+  types: [ heroSection ,aboutMe, benefitsSection, servicesSection, portfolioItem, portfolioSection ],
 }

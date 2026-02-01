@@ -16,7 +16,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata = {
-  title: "ELENA | Premium Beauty & Permanent Makeup",
+  title: "NATALIA | Premium Beauty & Permanent Makeup",
   description: "Experience the pinnacle of beauty with Elena. Specialized in permanent makeup, lip augmentation, and professional beauty training.",
 };
 

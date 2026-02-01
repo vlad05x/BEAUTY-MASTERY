@@ -17,11 +17,11 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: "Services", href: "#services" },
-    { name: "About", href: "#about" },
-    { name: "Portfolio", href: "#portfolio" },
-    { name: "Courses", href: "#courses" },
-    { name: "Contact", href: "#contact" },
+    { name: "Послуги", href: "#services" },
+    { name: "Про мене", href: "#about" },
+    { name: "Портфоліо", href: "#portfolio" },
+    { name: "Курси", href: "#courses" },
+    { name: "Контакти", href: "#contact" },
   ];
 
   return (
@@ -36,7 +36,7 @@ const Navbar = () => {
           animate={{ opacity: 1, x: 0 }}
           className="text-2xl font-heading tracking-widest font-light"
         >
-          ELENA<span className="text-gold">.</span>
+          NATALIA KHARCHENKO<span className="text-gold">.</span>
         </motion.div>
 
         {/* Desktop Nav */}
@@ -58,7 +58,7 @@ const Navbar = () => {
             animate={{ opacity: 1, scale: 1 }}
             className="px-8 py-3 bg-foreground text-background text-xs uppercase tracking-widest hover:bg-gold transition-colors duration-300"
           >
-            Book Now
+            Забронювати зараз
           </motion.button>
         </div>
 
