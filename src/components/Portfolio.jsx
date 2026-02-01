@@ -34,13 +34,13 @@ const Portfolio = ({ data }) => {
     <section id="portfolio" className="py-32 bg-nude-200">
       <div className="container mx-auto px-6">
         <div className="text-center mb-20">
-          <motion.h2 className="text-5xl md:text-7xl font-heading mb-12">
+          <motion.div className="text-5xl md:text-7xl font-heading mb-12">
             {section?.title ? (
               <PortableText value={section.title} components={ptComponents} />
             ) : (
               <>Галерея <span className="italic text-gold">Трансформацій</span></>
             )}
-          </motion.h2>
+          </motion.div>
 
           <div className="flex flex-col md:flex-row items-center justify-center gap-12 mb-16">
             <div className="flex gap-8">
@@ -83,7 +83,6 @@ const Portfolio = ({ data }) => {
                   <AnimatePresence mode="wait">
                     <motion.img
                       key={activeTab}
-                      // Виправлена умова для фото
                       src={urlFor(activeTab === "До" ? work.before : work.after).url()}
                       initial={{ opacity: 0, scale: 1.05 }}
                       animate={{ opacity: 1, scale: 1 }}
@@ -106,7 +105,7 @@ const Portfolio = ({ data }) => {
         </div>
 
         {/* Кнопка внизу */}
-        {works.filter(w => filter === "Все" || w.category === categoryMap[filter]).length > 6 && (
+        {works.filter(w => filter === "Все" || w.category === categoryMap[filter]).length > 3 && (
           <div className="mt-24 text-center">
             <button
               onClick={() => setShowFullGallery(!showFullGallery)}
