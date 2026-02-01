@@ -13,13 +13,14 @@ import Footer from "@/components/Footer";
 import { client } from "@/sanity/lib/client";
 
 export default async function Home() {
+  const heroSection = await client.fetch(`*[_type == "heroSection"][0]`);
   const servicesData = await client.fetch(`*[_type == "servicesSection"][0]`);
   const aboutData = await client.fetch(`*[_type == "aboutMe"][0]`);
   const benefitsData = await client.fetch(`*[_type == "benefitsSection"][0]`);
   return (
     <main className="min-h-screen">
       <Navbar />
-      <Hero />
+      <Hero data={heroSection} />
       <Services data={servicesData}/>
       <AboutMe data={aboutData} />
       <Benefits data={benefitsData} />

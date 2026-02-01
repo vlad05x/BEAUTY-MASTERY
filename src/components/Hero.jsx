@@ -1,8 +1,22 @@
-"use client";
+  "use client";
 
 import { motion } from "framer-motion";
+import { PortableText } from "@portabletext/react";
 
-const Hero = () => {
+const components = {
+  marks: {
+    gold: ({ children }) => (
+      <span className="italic text-gold">{children}</span>
+    ),
+  },
+  block: {
+    normal: ({ children }) => <>{children}</>,
+  },
+};
+
+const Hero = ({ data }) => {
+  if (!data) return null;
+
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden bg-nude-100">
       {/* Background elements */}
@@ -23,11 +37,11 @@ const Hero = () => {
           transition={{ duration: 1, ease: "easeOut" }}
         >
           <span className="text-xs uppercase tracking-[0.5em] text-muted mb-6 block">
-            Artistry in Every Detail
+            {data.text}
           </span>
           <h1 className="text-6xl md:text-8xl lg:text-9xl font-heading font-light leading-tight mb-8">
-            Elevating Your <br />
-            <span className="italic text-gold">Natural</span> Beauty
+
+            {data.title && <PortableText value={data.title} components={components} />}
           </h1>
         </motion.div>
 
@@ -38,11 +52,11 @@ const Hero = () => {
           className="flex flex-col md:flex-row items-center justify-center gap-8 mt-12"
         >
           <p className="max-w-md text-sm md:text-base text-muted font-body leading-relaxed">
-            Specializing in bespoke permanent makeup and aesthetic enhancements that celebrate your unique features.
+            {data.description}
           </p>
           <div className="h-px w-12 bg-gold hidden md:block" />
           <button className="group relative overflow-hidden px-10 py-4 bg-foreground text-background text-xs uppercase tracking-widest transition-all duration-500">
-            <span className="relative z-10">Explore Services</span>
+            <span className="relative z-10">Ознайомитися з послугами</span>
             <div className="absolute inset-0 bg-gold translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
           </button>
         </motion.div>
@@ -72,7 +86,7 @@ const Hero = () => {
         transition={{ delay: 1.5, duration: 1 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4"
       >
-        <span className="text-[10px] uppercase tracking-[0.3em] text-muted">Scroll</span>
+        <span className="text-[10px] uppercase tracking-[0.3em] text-muted">Прокрутити</span>
         <div className="w-px h-12 bg-gradient-to-b from-gold to-transparent" />
       </motion.div>
     </section>
