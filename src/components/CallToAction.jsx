@@ -22,19 +22,16 @@ const CallToAction = () => {
           className="max-w-4xl mx-auto"
         >
           <h2 className="text-5xl md:text-8xl font-heading mb-12 leading-tight">
-            Ready to Reveal Your <br />
-            <span className="italic text-gold">Masterpiece</span>?
+            Готові Розкрити Свій <br />
+            <span className="italic text-gold">Шедевр?</span>?
           </h2>
           <p className="text-lg md:text-xl font-body text-white/70 mb-16 max-w-2xl mx-auto leading-relaxed">
-            Every transformation starts with a conversation. Let&apos;s discuss how we can enhance your unique beauty and boost your confidence.
+            Кожне перетворення починається з розмови. Давайте обговоримо, як ми можемо підкреслити вашу унікальну красу та підвищити вашу впевненість.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
             <button className="px-12 py-5 bg-gold text-white uppercase tracking-[0.2em] text-xs hover:bg-white hover:text-black transition-all duration-500 w-full sm:w-auto font-semibold">
-              Book Your Appointment
-            </button>
-            <button className="px-12 py-5 border border-white text-white uppercase tracking-[0.2em] text-xs hover:bg-white hover:text-black transition-all duration-500 w-full sm:w-auto font-semibold">
-              Free Consultation
+              Забронюйте зустріч
             </button>
           </div>
         </motion.div>

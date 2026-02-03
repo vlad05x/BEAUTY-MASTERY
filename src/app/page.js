@@ -21,6 +21,7 @@ export default async function Home() {
   const portfolioItems = await client.fetch(`*[_type == "portfolioItem"] | order(_createdAt desc)`);
   const coursesData = await client.fetch(`*[_type == "coursesSection"][0]`);
   const testimonialsData = await client.fetch(`*[_type == "testimonials"] | order(_createdAt desc)`);
+  const contactData = await client.fetch(`*[_type == "contactSection"][0]`);
   return (
     <main className="min-h-screen">
       <Navbar />
@@ -32,7 +33,7 @@ export default async function Home() {
       <TrainingCourses data={coursesData} />
       <Testimonials data={testimonialsData}/>
       <CallToAction />
-      <Contact />
+      <Contact data={contactData}/>
       <Footer />
     </main>
   );
