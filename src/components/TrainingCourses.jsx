@@ -80,7 +80,13 @@ const TrainingCourses = ({ data }) => {
                     {course.price} грн
                   </span>
                 </div>
-                <button className="flex items-center gap-4 bg-foreground text-background px-10 py-4 hover:bg-gold transition-colors duration-300 w-full md:w-auto justify-center">
+                <button className="flex items-center gap-4 bg-foreground text-background px-10 py-4 hover:bg-gold transition-colors duration-300 w-full md:w-auto justify-center"
+                  onClick={() => {
+                    const contactSection = document.querySelector('#contact');
+                    if (contactSection) {
+                      contactSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}>
                   <span className="text-xs uppercase tracking-widest">Подати заявку зараз</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>

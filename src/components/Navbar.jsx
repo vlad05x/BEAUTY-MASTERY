@@ -26,9 +26,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled ? "glass-nav py-4" : "bg-transparent py-8"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? "glass-nav py-4" : "bg-transparent py-8"
+        }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         <motion.div
@@ -57,6 +56,12 @@ const Navbar = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             className="px-8 py-3 bg-foreground text-background text-xs uppercase tracking-widest hover:bg-gold transition-colors duration-300"
+            onClick={() => {
+              const contactSection = document.querySelector('#contact');
+              if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
           >
             Забронювати зараз
           </motion.button>
@@ -79,6 +84,14 @@ const Navbar = () => {
             exit={{ opacity: 0, height: 0 }}
             className="fixed inset-0 bg-background z-40 flex flex-col items-center justify-center space-y-8 md:hidden"
           >
+            {/* Close button inside mobile menu */}
+            <button
+              onClick={() => setMobileMenuOpen(false)}
+              className="absolute top-8 right-8 p-2"
+            >
+              <X size={32} />
+            </button>
+
             {navLinks.map((link) => (
               <a
                 key={link.name}

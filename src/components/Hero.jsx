@@ -55,7 +55,13 @@ const Hero = ({ data }) => {
             {data.description}
           </p>
           <div className="h-px w-12 bg-gold hidden md:block" />
-          <button className="group relative overflow-hidden px-10 py-4 bg-foreground text-background text-xs uppercase tracking-widest transition-all duration-500">
+          <button className="group relative overflow-hidden px-10 py-4 bg-foreground text-background text-xs uppercase tracking-widest transition-all duration-500"
+            onClick={() => {
+              const contactSection = document.querySelector('#services');
+              if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}>
             <span className="relative z-10">Ознайомитися з послугами</span>
             <div className="absolute inset-0 bg-gold translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
           </button>

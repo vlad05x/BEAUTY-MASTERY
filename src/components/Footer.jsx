@@ -1,7 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
-
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 

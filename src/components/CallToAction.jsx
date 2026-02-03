@@ -30,7 +30,13 @@ const CallToAction = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
-            <button className="px-12 py-5 bg-gold text-white uppercase tracking-[0.2em] text-xs hover:bg-white hover:text-black transition-all duration-500 w-full sm:w-auto font-semibold">
+            <button className="px-12 py-5 bg-gold text-white uppercase tracking-[0.2em] text-xs hover:bg-white hover:text-black transition-all duration-500 w-full sm:w-auto font-semibold"
+              onClick={() => {
+                const contactSection = document.querySelector('#contact');
+                if (contactSection) {
+                  contactSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}>
               Забронюйте зустріч
             </button>
           </div>
